@@ -2,6 +2,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser'); // used as middleware
 const authRoutes = require('./routes/auth.routes')
+const foodRoutes = require('./routes/food.routes')
 
 
 const app = express(); // instance of server created
@@ -13,10 +14,13 @@ app.get("/" , (req , res)=>{
     res.send("hello hello");
 })
 
+// authentication routes
 app.use('/api/auth' , authRoutes); 
 // telling server that API's exist 
 // api/auth , this is like prefix
 
+// food routes
+app.use('/api/food' , foodRoutes)
 
 
 
