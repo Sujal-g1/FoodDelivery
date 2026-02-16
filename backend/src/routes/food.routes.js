@@ -14,7 +14,17 @@ const upload = multer({
 // middleware created to protect 
 router.post('/',
     authMiddleware.authFoodPartnerMiddelware , 
-    upload.single("video") ,foodController.createFood)
+    upload.single("video") ,
+    foodController.createFood
+)
+
+
+// GET /api/food/  , protected
+// this is for users
+router.get('/' , 
+    authMiddleware.authUserMiddleware,
+    foodController.getFoodItems 
+ )
 
 
 module.exports = router; 

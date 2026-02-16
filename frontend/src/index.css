@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.header-heading h1{
+    font-family: Arial, Helvetica, sans-serif;;
+}
