@@ -12,10 +12,11 @@ const jwt = require('jsonwebtoken');
 
 async function registerUser(req, res){
     const { fullName , email , password } = req.body;
-
+    console.log("Checking email:", email);
     const isUserAlreadyExists = await userModel.findOne({
         email
     })
+    console.log("Found user:", isUserAlreadyExists);
 
     if(isUserAlreadyExists){
         return res.status(400).json({
@@ -91,7 +92,7 @@ async function logoutUser(req , res){
 }
 
 async function registerFoodPartner(req , res){
- const { name , email , password , phone, address , contactName } = req.body;
+ const { fullName , email , password , phone, address , contactName } = req.body;
 
      const isAccountAlreadtExists  = await foodPartnerModel.findOne({
          email
@@ -106,7 +107,7 @@ async function registerFoodPartner(req , res){
     const hashedPassword = await bcrypt.hash(password , 10); 
 
      const foodpartner = await foodPartnerModel.create({
-        name , email , password:hashedPassword,
+        fullName , email , password:hashedPassword,
         phone, address , contactName  
      })
 

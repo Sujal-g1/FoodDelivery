@@ -3,9 +3,14 @@ import {useState} from 'react'
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
 import {  AnimatePresence ,motion } from "framer-motion"
+import UserRegister from './auth/UserRegister'
+import FoodPartner from './auth/FoodPartnerRegister'
+import { useNavigate } from 'react-router-dom';
 
 
 const Start = () => {
+
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false)
 
@@ -68,11 +73,15 @@ const itemVariants = {
       className="absolute top-full flex flex-col gap-5 mt-5 items-center"
 
     >
-      <button className="w-full text-center px-6 py-3 bg-black text-white rounded-full hover:scale-105 transition cursor-pointer whitespace-nowrap">
+      <button 
+      onClick={()=>navigate("/user/register")}
+      className="w-full text-center px-6 py-3 bg-black text-white rounded-full hover:scale-105 transition cursor-pointer whitespace-nowrap">
         User Login
       </button>
 
-      <button className="w-full text-center px-6 py-3 bg-white text-black rounded-full hover:scale-105 transition cursor-pointer">
+      <button
+      onClick={()=> navigate('/food-partner/register')} 
+      className="w-full text-center px-6 py-3 bg-white text-black rounded-full hover:scale-105 transition cursor-pointer">
         Food Partner Login
       </button>
     </motion.div>

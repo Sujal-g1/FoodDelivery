@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 const foodpartnerSchema = new mongoose.Schema({
-    name:{
+    fullNLLame:{
         type:String,
         required:true
     },
