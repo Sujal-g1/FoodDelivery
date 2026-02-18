@@ -19,6 +19,12 @@ const UserRegister = () => {
       const address = form.elements.address.value
       const password = form.elements.password.value
       const contactName = form.elements.contactName.value
+
+
+       if (!fullName || !email || !password) {
+    alert("Please fill all fields");
+    return;
+    } 
       
       try{
         const response = await axios.post(
@@ -66,6 +72,11 @@ const UserRegister = () => {
                <button type="submit"
               className='border px-3 py-2 rounded-xl mt-15 mb-10 text-lg font-semibold hover:text-black hover:bg-gray-500 transition'
               >Register User</button>
+
+               <button 
+               onClick={()=>navigate('/food-partner/login')}
+              className='border px-3 py-2 rounded-xl mt-5 mb-10 text-lg font-semibold hover:text-black hover:bg-gray-500 transition'
+              > Login</button>
               
         </form>
 

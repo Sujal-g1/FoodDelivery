@@ -26,5 +26,10 @@ router.get('/' ,
     foodController.getFoodItems 
  )
 
+router.get("/food-partner/:id", foodController.getFoodPartnerById);
+
+
+
+
 
 module.exports = router; 

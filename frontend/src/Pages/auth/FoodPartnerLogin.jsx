@@ -15,15 +15,20 @@ const UserRegister = () => {
       
       const email = form.elements.email.value
       const password = form.elements.password.value
+
+      if ( !email || !password) {
+    alert("Please fill all fields");
+    return;
+    } 
       
       try{
         const response = await axios.post(
-        'http://localhost:3000/api/auth/food-partner/register',
+        'http://localhost:3000/api/auth/food-partner/login',
         { email , password },
         { withCredentials : true }
 
       )
-       navigate('/create-food')
+       navigate('/home')
       }
       catch(error){
         console.eror(error.response?.data || error.message)
@@ -41,16 +46,9 @@ const UserRegister = () => {
         onSubmit={handleSubmit}
         className='flex flex-col gap-6 items-center mt-20  '>
 
-            <input type="text" placeholder='name' name='fullName'
-               className="w-2/4 bg-transparent border border-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white" />
+           
 
               <input type="email" placeholder='email' name='email'
-               className=" w-2/4  bg-transparent border border-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"/>
-
-              <input type="phone" placeholder='phone number' name='phone'
-               className=" w-2/4  bg-transparent border border-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"/>
-               
-              <input type="text" placeholder='address' name='address'
                className=" w-2/4  bg-transparent border border-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"/>
 
               <input type="password" placeholder='password' name='password'

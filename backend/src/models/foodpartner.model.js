@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 const foodpartnerSchema = new mongoose.Schema({
-    fullNLLame:{
+    fullName:{
         type:String,
         required:true
     },
@@ -29,6 +29,6 @@ const foodpartnerSchema = new mongoose.Schema({
     }
 })
 
-const foodPartnerModel = mongoose.model("foodpartner" ,foodpartnerSchema);
 
-module.exports = foodPartnerModel;
+module.exports = mongoose.models.foodpartner 
+  || mongoose.model("foodpartner", foodpartnerSchema);
