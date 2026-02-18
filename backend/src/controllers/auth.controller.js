@@ -13,6 +13,14 @@ const jwt = require('jsonwebtoken');
 async function registerUser(req, res){
     const { fullName , email , password } = req.body;
     console.log("Checking email:", email);
+
+
+    if (!fullName || !email || !password) {
+    return res.status(400).json({
+      message: "All fields are required"
+    });
+  }
+  
     const isUserAlreadyExists = await userModel.findOne({
         email
     })

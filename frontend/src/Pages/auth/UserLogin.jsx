@@ -13,6 +13,12 @@ const UserLogin = () => {
     const email = form.elements.email.value;
     const password = form.elements.password.value;
 
+     if ( !email || !password) {
+    alert("Please fill all fields");
+    return;
+    } 
+
+
     const response =  axios.post(
       'http://localhost:3000/api/auth/user/login',
       { email , password } ,
@@ -34,11 +40,7 @@ const UserLogin = () => {
         onSubmit={handleSubmit}
         className='flex flex-col gap-6 items-center mt-20  '>
 
-            <input type="text" placeholder='name' name="fullName"
-            // value={formData.name}
-            // onChange={handleChange}
-               className="w-2/4 bg-transparent border border-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white" />
-
+           
               <input type="email" placeholder='email' name="email"
               // value={formData.email}
               // onChange={handleChange}

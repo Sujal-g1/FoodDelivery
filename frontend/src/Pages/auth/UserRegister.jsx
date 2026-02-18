@@ -63,6 +63,12 @@ const UserRegister = () => {
        const password = form.elements.password.value;
       console.log("Values:", { fullName, email, password });
 
+       if (!fullName || !email || !password) {
+    alert("Please fill all fields");
+    return;
+    } 
+
+
       try{
        const response = await axios.post("http://localhost:3000/api/auth/user/register",
         { fullName , email , password },
